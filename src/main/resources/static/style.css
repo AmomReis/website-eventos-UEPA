@@ -117,11 +117,11 @@ body {
     color: #6c757d;
     line-height: 1.5;
     margin-bottom: 1.5rem;
-    
+
     /* Propriedades para cortar o texto em 3 linhas */
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical; 
+    -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
@@ -135,5 +135,5 @@ body {
 }
 
 .event-meta i {
-    color: #8D5CF6; 
+    color: #8D5CF6;
 }

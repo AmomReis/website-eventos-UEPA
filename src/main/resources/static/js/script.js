@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     // Dados simulados dos eventos (Você pode adicionar mais aqui)
     const eventos = [
         {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="card-body">
                         <h5 class="event-title">${evento.titulo}</h5>
                         <p class="event-desc">${evento.descricao}</p>
-                        
+
                         <div class="mt-auto">
                             <div class="event-meta">
                                 <i class="bi bi-calendar4"></i>
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        
+
         // Adiciona o card ao container
         container.innerHTML += cardHTML;
     });
