@@ -254,6 +254,8 @@
   color: #9ca3af;
 }
 
+/* ================= FIX BOTÃO SUBMIT (SUBSTITUIR O BLOCO ANTIGO) ================= */
+
 .btn-submit {
   display: flex;
   align-items: center;
@@ -269,8 +271,13 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
+
+  /* Evita que o ripple empurre o layout */
+  position: relative;
+  overflow: hidden;
 }
 
+/* visual hover/active mantidos */
 .btn-submit:hover {
   background: #1d4ed8;
   transform: translateY(-2px);
@@ -281,11 +288,33 @@
   transform: translateY(0);
 }
 
+/* estado disabled */
 .btn-submit:disabled {
   background: #9ca3af;
   cursor: not-allowed;
   transform: none;
 }
+
+/* elemento ripple — precisa existir no CSS para o JS inserir o span */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  background: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+/* animação do ripple */
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ================= FIM DO BLOCO ================= */
+
 
 .success-message,
 .error-message {
@@ -527,4 +556,78 @@
   .map-container {
     height: 300px;
   }
+}
+
+/* Fundo escurecido */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Caixa */
+.popup-box {
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  max-width: 380px;
+  width: 90%;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  animation: popIn 0.35s ease;
+}
+
+.popup-box svg {
+  stroke: #10b981;
+  margin-bottom: 1rem;
+}
+
+.popup-box h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+
+.popup-box p {
+  margin: 0 0 1.5rem;
+  color: #4b5563;
+}
+
+.popup-box button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.popup-box button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Animações */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

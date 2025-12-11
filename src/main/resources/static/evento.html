@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Evento - UEPA</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="evento.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/evento.css">
 </head>
 <body>
 <header class="header">
@@ -18,12 +18,14 @@
                     <p class="header-subtitle">Universidade do Estado do Pará</p>
                 </div>
             </div>
-            <a href="/login.html" class="btn-admin">
+            <button class="admin-btn" onclick="window.location.href='/login-admin.html'">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                    <polyline points="10 17 15 12 10 7"></polyline>
+                    <line x1="15" y1="12" x2="3" y2="12"></line>
                 </svg>
                 Admin
-            </a>
+            </button>
         </div>
     </div>
 </header>
@@ -63,7 +65,7 @@
                 </svg>
                 <div>
                     <h3>Data</h3>
-                    <p id="eventDate">Carregando...</p>
+                    <p id="eventDate">Terça-feira, 09 de dezembro de 2025</p>
                 </div>
             </div>
 
@@ -74,7 +76,7 @@
                 </svg>
                 <div>
                     <h3>Horário</h3>
-                    <p id="eventTime">Carregando...</p>
+                    <p id="eventTime">08:00 - 18:00</p>
                 </div>
             </div>
 
@@ -85,7 +87,7 @@
                 </svg>
                 <div>
                     <h3>Local</h3>
-                    <p id="eventLocation">Carregando...</p>
+                    <p id="eventLocation">Auditório Principal</p>
                 </div>
             </div>
         </div>
@@ -93,7 +95,7 @@
         <section class="event-section">
             <h2 class="section-title">Sobre o Evento</h2>
             <p class="event-description" id="eventDescription">
-                Carregando descrição do evento...
+                Grande conferência reunindo palestrantes renomados, professores e alunos para discutir temas relevantes da atualidade acadêmica. Uma oportunidade única de networking e aprendizado com debates enriquecedores.
             </p>
         </section>
 
@@ -107,7 +109,7 @@
                 <h2 class="form-title">Inscreva-se no Evento</h2>
                 <p class="form-subtitle">Preencha o formulário abaixo para garantir sua participação</p>
 
-                <form id="registrationForm" class="registration-form">
+                <form action="/inscricao" method="POST" id="registrationForm" class="registration-form">
                     <div class="form-group">
                         <label for="nomeCompleto">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -119,7 +121,7 @@
                         <input
                                 type="text"
                                 id="nomeCompleto"
-                                name="nomeCompleto"
+                                name="name"
                                 placeholder="Digite seu nome completo"
                                 required
                         >
@@ -153,7 +155,7 @@
                         <input
                                 type="text"
                                 id="curso"
-                                name="curso"
+                                name="course"
                                 placeholder="Ex: Ciência da Computação"
                                 required
                         >
@@ -172,7 +174,7 @@
                         <input
                                 type="text"
                                 id="matricula"
-                                name="matricula"
+                                name="registration"
                                 placeholder="Digite sua matrícula"
                                 required
                         >
@@ -227,7 +229,7 @@
                 </svg>
                 <div>
                     <h3>Endereço completo:</h3>
-                    <p id="fullAddress">Carregando endereço...</p>
+                    <p id="fullAddress">Campus Universitário UEPA, Tv. Perebebuí, 2623 - Marco, Belém - PA</p>
                 </div>
             </div>
 
@@ -270,7 +272,20 @@
     </div>
 </footer>
 
-<script src="main.js"></script>
-<script src="evento.js"></script>
+<script src="js/main.js"></script>
+<script src="js/evento.js"></script>
+<!-- Popup de Sucesso -->
+<div id="successPopup" class="popup-overlay" style="display: none;">
+    <div class="popup-box">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+        <h2>Inscrição Confirmada!</h2>
+        <p>Você foi inscrito com sucesso no evento.</p>
+        <button id="closePopup">OK</button>
+    </div>
+</div>
+
 </body>
 </html>

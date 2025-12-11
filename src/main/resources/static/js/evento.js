@@ -1,3 +1,5 @@
+// evento.js - versão corrigida e completa
+
 // Smooth scroll para links internos
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -27,46 +29,10 @@ const observer = new IntersectionObserver((entries) => {
   });
 });
 
-// Ativa animações após carregar a página
-document.addEventListener("DOMContentLoaded", () => {
-  // Animação dos cards de eventos
-  document.querySelectorAll(".event-card").forEach((card) => {
-    observer.observe(card);
-  });
-
-  // Efeito de hover nos cards de estatísticas
-  document.querySelectorAll(".stat-card").forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      card.style.transform = "translateY(-4px)";
-    });
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "translateY(0)";
-    });
-  });
-
-  // Efeito ripple nos botões
-  document.querySelectorAll(".event-btn, .admin-btn").forEach((button) => {
-    button.addEventListener("click", function (e) {
-      const ripple = document.createElement("span");
-      const rect = this.getBoundingClientRect();
-      const size = Math.max(rect.width, rect.height);
-      const x = e.clientX - rect.left - size / 2;
-      const y = e.clientY - rect.top - size / 2;
-
-      ripple.style.width = ripple.style.height = size + "px";
-      ripple.style.left = x + "px";
-      ripple.style.top = y + "px";
-      ripple.classList.add("ripple");
-
-      this.appendChild(ripple);
-      setTimeout(() => ripple.remove(), 600);
-    });
-  });
-});
-
-// Lazy-load de imagens
+// Lazy-load de imagens (pré-config)
+let imageObserver;
 if ("IntersectionObserver" in window) {
-  const imageObserver = new IntersectionObserver((entries) => {
+  imageObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const img = entry.target;
@@ -75,10 +41,6 @@ if ("IntersectionObserver" in window) {
         imageObserver.unobserve(img);
       }
     });
-  });
-
-  document.querySelectorAll(".event-image img").forEach((img) => {
-    imageObserver.observe(img);
   });
 }
 
@@ -100,4 +62,70 @@ window.addEventListener("scroll", () => {
   } else {
     scrollBtn.classList.remove("visible");
   }
+});
+
+// ===============================
+// EVENTOS DO DOM
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+  // Animação dos cards de eventos
+  document.querySelectorAll(".event-card").forEach((card) => {
+    observer.observe(card);
+  });
+
+  // Hover nos cards de estatísticas
+  document.querySelectorAll(".stat-card").forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      card.style.transform = "translateY(-4px)";
+    });
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "translateY(0)";
+    });
+  });
+
+  // Efeito ripple nos botões
+  document.querySelectorAll(".event-btn, .admin-btn, .btn-submit, .btn-back, .btn-maps").forEach((button) => {
+    button.addEventListener("click", function (e) {
+      const ripple = document.createElement("span");
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+
+      ripple.style.width = ripple.style.height = size + "px";
+      ripple.style.left = x + "px";
+      ripple.style.top = y + "px";
+      ripple.classList.add("ripple");
+
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+
+  // Lazy-load de imagens
+  document.querySelectorAll(".event-image img").forEach((img) => {
+    if (imageObserver) imageObserver.observe(img);
+  });
+
+  // ============================
+  // FORMULÁRIO DE INSCRIÇÃO
+  // ============================
+  const form = document.getElementById("registrationForm");
+  const popupOverlay = document.getElementById("successPopup"); // overlay popup central
+  const closePopupBtn = document.getElementById("closePopup");
+  const successBox = document.getElementById("successMessage"); // caixa inline que já existe
+  const errorBox = document.getElementById("errorMessage");
+  const errorText = document.getElementById("errorText");
+  const submitBtn = document.getElementById("btnSubmit");
+
+  // helper para mostrar erro amigável
+  const showError = (msg) => {
+    if (errorText) errorText.textContent = msg;
+    if (errorBox) errorBox.style.display = "flex";
+  };
+
+  const hideMessages = () => {
+    if (successBox) successBox.style.display = "none";
+    if (errorBox) errorBox.style.display = "none";
+  };
 });
