@@ -19,19 +19,19 @@ public class ControllerParticipant {
 
     @GetMapping("/")
     public String home() {
-        return "index.html";
+        return "redirect:/index.html";
     }
+
 
     @GetMapping("/inscricao")
     public String mostrarFormulario(Model model) {
         model.addAttribute("participante", new Participant());
-        return "evento.html";
+        return "evento";
     }
 
     @PostMapping("/inscricao")
     public String processarInscricao(@ModelAttribute Participant participante) {
         repository.save(participante);
-        return "redirect:/success.html";
+        return "redirect:/inscricao?success=true";
     }
 }
-

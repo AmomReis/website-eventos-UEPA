@@ -128,4 +128,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (successBox) successBox.style.display = "none";
     if (errorBox) errorBox.style.display = "none";
   };
+
+  // fechar popup
+  if (closePopupBtn) {
+    closePopupBtn.addEventListener("click", () => {
+      if (popupOverlay) popupOverlay.style.display = "none";
+    });
+  }
+
+  // SE tiver sucesso=true na URL → mostrar popup
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("success") === "true") {
+    if (popupOverlay) popupOverlay.style.display = "flex";
+    if (successBox) successBox.style.display = "flex";
+  }
+
 });
