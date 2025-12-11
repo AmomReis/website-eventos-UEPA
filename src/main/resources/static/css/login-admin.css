@@ -1,0 +1,170 @@
+/* ===== LOGIN ADMIN - DARK CLEAN (IGUAL AO CLARO) ===== */
+login_admin
+body {
+    background: #0b0f14;
+    color: #e5e7eb;
+}
+
+/* Centraliza o card */
+.main-content2 {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* container vira só um "wrapper" */
+.container2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* CARD */
+.registration-form-container {
+    width: 100%;
+    max-width: 440px;
+    background: #0f172a;
+    padding: 36px 32px;
+    border-radius: 22px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.75);
+    border: 1px solid #1e293b;
+}
+
+/* Ícone topo (simulado usando before) */
+.form-title::before {
+    content: "🔒";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 14px;
+    width: 64px;
+    height: 64px;
+    background: rgba(37,99,235,0.15);
+    border-radius: 50%;
+    font-size: 28px;
+}
+
+/* Título */
+.form-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Subtítulo */
+.form-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #9ca3af;
+    margin-bottom: 28px;
+}
+
+/* Labels */
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #cbd5f5;
+    margin-bottom: 6px;
+}
+
+/* Inputs */
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: none;
+    background: #020617;
+    color: #e5e7eb;
+    font-size: 14px;
+}
+
+.form-group input::placeholder {
+    color: #64748b;
+}
+
+.form-group input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37,99,235,0.5);
+}
+
+/* Caixa DEMO (igual ao claro) */
+.registration-form .container p {
+    background: rgba(37,99,235,0.15);
+    color: #93c5fd;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    margin: 22px 0;
+}
+
+/* Botões */
+.registration-form .container {
+    display: flex;
+    gap: 12px;
+}
+
+/* Entrar */
+.btn-submit {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #020617, #020617);
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.btn-submit svg {
+    transition: transform 0.3s ease;
+}
+.btn-submit:hover {
+    background: #020617;
+    transform: translateX(4px);
+}
+
+/* Cancelar */
+.btn-back {
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid #1e293b;
+    color: #e5e7eb;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Texto final */
+.registration-form p:last-of-type {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: #64748b;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+    .registration-form-container {
+        margin: 0 16px;
+        padding: 28px 22px;
+    }
+
+    .registration-form .container {
+        flex-direction: column;
+    }
+
+    .btn-submit,
+    .btn-back {
+        width: 100%;
+        justify-content: center;
+    }
+}

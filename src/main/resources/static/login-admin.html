@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Evento - UEPA</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login-admin.css">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="/images/img_3.png" alt="Logo UEPA" class="logo">
+                <div class="header-text">
+                    <h1 class="header-title">Portal de Eventos Acadêmicos</h1>
+                    <p class="header-subtitle">Universidade do Estado do Pará</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="main-content2">
+    <div class="container2">
+<!-- FORMULÁRIO DE LOGIN PARA OS FUNCIONÁRIOS ADMINISTRATIVOS DA UEPA -->
+        <div class="tab-content active" id="login_admin">
+            <div class="registration-form-container">
+                <h2 class="form-title">Login Administrativo</h2>
+                <p class="form-subtitle">Acesso restrito a funcionários autorizados</p>
+
+                <form id="registrationForm" class="registration-form">
+
+                    <div class="form-group">
+                        <label for="idFuncionario">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            ID do Funcionário
+                        </label>
+                        <input
+                                type="text"
+                                id="idFuncionario"
+                                name="idFuncionario"
+                                placeholder="Digite seu ID exclusivo"
+                                required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="senhaFuncionario">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Senha do Funcionário
+                        </label>
+                        <input
+                                type="password"
+                                id="senhaFuncionario"
+                                name="senhaFuncionario"
+                                placeholder="Digite sua senha"
+                                required
+                        >
+                    </div>
+
+                    <div class="container">
+                        <p>Demo: Use qualquer ID de funcionário e a senha: admin123</p>
+                    </div>
+
+                    <div class="container">
+                        <button type="submit" class="btn-submit" id="btnSubmit">
+                            <svg width="22" height="18" viewBox="0 0 22 18" fill="none"
+                                 stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="2" y1="9" x2="10" y2="9" />
+                                <polyline points="10,4 15,9 10,14" />
+                                <line x1="18" y1="4" x2="18" y2="14" />
+                                <line x1="16" y1="4" x2="18" y2="4" />
+                                <line x1="16" y1="14" x2="18" y2="14" />
+                            </svg>
+                            Entrar
+                        </button>
+
+                        <a href="/" class="btn-back">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Cancelar
+                        </a>
+                    </div>
+                    <p>Este sistema registra todos os acessos e modificações com base no ID do funcionário. Use suas credenciais com responsabilidade.</p>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Universidade do Estado do Pará - Todos os direitos reservados</p>
+        <p class="footer-subtitle">Portal de Eventos Acadêmicos</p>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/evento.js"></script>
+</body>
+</html>
