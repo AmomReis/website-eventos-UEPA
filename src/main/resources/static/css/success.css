@@ -1,0 +1,138 @@
+/* ============================
+   VARIÁVEIS
+============================ */
+:root {
+  --primary-blue: #2563eb;
+  --primary-green: #10b981;
+  --simple-blue: #90EE90;
+
+  --text-dark: #1f2937;
+
+  --bg-white: #ffffff;
+  --bg-gray:  #f9feff;
+
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.15);
+}
+
+/* ============================
+   BASE
+============================ */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+
+  /* REMOVIDO O ALINHAMENTO NO CENTRO */
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 850px;
+  text-align: center;
+}
+
+/* ============================
+   TÍTULO E MENSAGENS
+============================ */
+.success-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.success-message {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================
+   GRID
+============================ */
+.success-info {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.info-item {
+  background-color: var(--bg-gray);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  box-shadow: var(--shadow-md);
+  transition: 0.3s;
+
+  /* DIMINUI LARGURA VISUAL */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.info-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ============================
+   ÍCONES
+============================ */
+.icon {
+  margin: 0 auto 0.7rem;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(37, 99, 235, 0.15);
+  border-radius: 20%;
+}
+
+/* ============================
+   BOTÕES
+============================ */
+
+.container-success {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-home,
+.btn-details-event {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .6rem 1.2rem;
+  color: white;
+  border-radius: .5rem;
+  font-weight: 500;
+  font-size: .95rem;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/* HOME */
+.btn-home {
+  background-color: #6495ED;
+}
+.btn-home:hover {
+  background-color: #0000FF;
+  transform: translateX(-4px);
+}
+
+/* DETALHES */
+.btn-details-event {
+  background-color: var(--primary-green);
+}
+.btn-details-event:hover {
+  background-color: #008000;
+  transform: translateX(4px);
+}
