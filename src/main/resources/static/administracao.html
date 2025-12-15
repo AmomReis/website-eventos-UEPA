@@ -42,7 +42,7 @@
             <button class="tab-button" data-tab="criar-evento">
                 Criar Evento
             </button>
-            <button class="tab-button active" data-tab="noticias-cadastrados">
+            <button class="tab-button" data-tab="noticias-cadastrados">
                 Notícias Postadas
             </button>
             <button class="tab-button" data-tab="criar-noticia">
@@ -256,7 +256,7 @@
         </div>
 
         <!-- Tab: Noticias Cadastrados -->
-        <div class="tab-content active" id="noticias-cadastrados">
+        <div class="tab-content" id="noticias-cadastrados">
             <div class="events-container">
                 <div class="events-header">
                     <h2 class="section-title">Noticias Cadastrados</h2>
@@ -276,6 +276,16 @@
 
                     <!-- Lado direito: Ações -->
                     <div class="event-actions">
+                        <button class="btn-action view-participants">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                            Ver Inscritos
+                        </button>
                         <button class="btn-action edit">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                  stroke-width="2">
@@ -301,7 +311,7 @@
         <!-- Tab: Criar Noticia -->
         <div class="tab-content" id="criar-noticia">
             <div class="registration-form-container">
-                <h2 class="form-title">Criar Evento</h2>
+                <h2 class="form-title">Criar Noticia</h2>
 
                 <form action="/cadastrar-noticia" method="POST" id="registrationFormNotice" class="registration-form">
                     <!-- ... mantém o formulário existente ... -->
@@ -332,7 +342,7 @@
                                 <path d="M4 12h10"/>
                                 <path d="M4 18h7"/>
                             </svg>
-                            Titulo do evento
+                            Titulo da Noticia
                         </label>
                         <input
                                 type="text"
@@ -352,7 +362,7 @@
                                 <path d="M4 14h12"/>
                                 <path d="M4 18h8"/>
                             </svg>
-                            Descrição do evento
+                            Descrição da Noticia
                         </label>
                         <textarea
                                 id="decricaoNoticia"
