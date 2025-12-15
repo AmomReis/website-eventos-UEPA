@@ -95,13 +95,16 @@
         <section class="event-section">
             <h2 class="section-title">Sobre o Evento</h2>
             <p class="event-description" id="eventDescription">
-                Cerimônia de inauguração das novas instalações do campus da UEPA. Evento especial com a presença de autoridades, professores, alunos e comunidade. Haverá apresentações culturais e visitação guiada pelas instalações.
+                Cerimônia de inauguração das novas instalações do campus da UEPA. Evento especial com a presença de
+                autoridades, professores, alunos e comunidade. Haverá apresentações culturais e visitação guiada pelas
+                instalações.
             </p>
         </section>
 
         <div class="tabs">
             <button class="tab-button active" data-tab="inscricao">Inscrição</button>
-            <button class="tab-button" data-tab="participantes">Participantes (<span id="tabParticipantsCount">0</span>)</button>
+            <button class="tab-button" data-tab="participantes">Participantes (<span id="tabParticipantsCount">0</span>)
+            </button>
         </div>
 
         <div class="tab-content active" id="inscricao">
@@ -109,10 +112,11 @@
                 <h2 class="form-title">Inscreva-se no Evento</h2>
                 <p class="form-subtitle">Preencha o formulário abaixo para garantir sua participação</p>
 
-                <form id="registrationForm" class="registration-form">
+                <form action="/inscricao" method="POST" id="registrationForm" class="registration-form">
                     <div class="form-group">
                         <label for="nomeCompleto">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                                 <circle cx="12" cy="7" r="4"/>
                             </svg>
@@ -129,7 +133,8 @@
 
                     <div class="form-group">
                         <label for="email">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                 <polyline points="22,6 12,13 2,6"/>
                             </svg>
@@ -146,7 +151,8 @@
 
                     <div class="form-group">
                         <label for="curso">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2">
                                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                             </svg>
@@ -163,7 +169,8 @@
 
                     <div class="form-group">
                         <label for="matricula">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2">
                                 <line x1="4" y1="9" x2="20" y2="9"/>
                                 <line x1="4" y1="15" x2="20" y2="15"/>
                                 <line x1="10" y1="3" x2="8" y2="21"/>
@@ -181,7 +188,8 @@
                     </div>
 
                     <button type="submit" class="btn-submit" id="btnSubmit">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                             <circle cx="8.5" cy="7" r="4"/>
                             <line x1="20" y1="8" x2="20" y2="14"/>

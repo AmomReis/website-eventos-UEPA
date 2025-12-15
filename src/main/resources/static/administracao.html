@@ -31,137 +31,44 @@
     <div class="registration-form-container">
         <h2 class="form-title">Criar Evento</h2>
 
-        <form action="/cadastrar-eventos" method="POST" id="registrationForm" class="registration-form">
+        <form id="registrationForm" class="registration-form">
+
             <div class="form-group">
-                <label for="imgEvento">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <circle cx="8.5" cy="8.5" r="1.5"/>
-                        <path d="M21 15l-5-5L5 21"/>
-                    </svg>
-                    Imagem do evento
-                </label>
-                <input
-                        type="file"
-                        id="imgEvento"
-                        name="imgEvento"
-                        placeholder="Escolha uma imagem para capa do evento"
-                        required
-                >
+                <label>Imagem do evento</label>
+                <select id="urlBanner" required>
+                    <option value="/images/img.png">Banner 1</option>
+                    <option value="/images/img_1.png">Banner 2</option>
+                    <option value="/images/img_2.png">Banner 3</option>
+                    <option value="/images/img_3.png">Banner 4</option>
+                </select>
             </div>
 
             <div class="form-group">
-                <label for="tituloEvento">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 6h16"/>
-                        <path d="M4 12h10"/>
-                        <path d="M4 18h7"/>
-                    </svg>
-                    Titulo do evento
-                </label>
-                <input
-                        type="text"
-                        id="tituloEvento"
-                        name="tituloEvento"
-                        placeholder="Digite o titulo do evento"
-                        required
-                >
+                <label>Título do evento</label>
+                <input type="text" id="titleEvent" required>
             </div>
 
             <div class="form-group">
-                <label for="decricaoEvento">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 6h16"/>
-                        <path d="M4 10h16"/>
-                        <path d="M4 14h12"/>
-                        <path d="M4 18h8"/>
-                    </svg>
-                    Descrição do evento
-                </label>
-
-                <textarea
-                        id="decricaoEvento"
-                        name="decricaoEvento"
-                        placeholder="Digite a descrição do evento"
-                        rows="4"
-                        required
-                ></textarea>
+                <label>Descrição do evento</label>
+                <textarea id="descriptionEvent" rows="4" required></textarea>
             </div>
 
             <div class="form-group">
-                <label for="dataEvento">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="4" width="18" height="18" rx="2"/>
-                        <line x1="16" y1="2" x2="16" y2="6"/>
-                        <line x1="8" y1="2" x2="8" y2="6"/>
-                        <line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
-                    Data do vento
-                </label>
-                <input
-                        type="date"
-                        id="dataEvento"
-                        name="dataEvento"
-                        placeholder="Ex: Terça-feira, 09 de dezembro de 2025"
-                        required
-                >
+                <label>Data do evento</label>
+                <input type="date" id="dateEvent" required>
             </div>
 
             <div class="form-group">
-                <label for="horarioEvento">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                    Horário do evento
-                </label>
-                <input
-                        type="time"
-                        id="horarioEvento"
-                        name="horarioEvento"
-                        placeholder="Ex: 08:00 - 18:00"
-                        required
-                >
+                <label>Horário do evento</label>
+                <input type="time" id="startEvent" required>
             </div>
 
             <div class="form-group">
-                <label for="localEvento">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/>
-                        <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                    Local do evento
-                </label>
-                <input
-                        type="text"
-                        id="localEvento"
-                        name="localEvento"
-                        placeholder="Digite o local do evento"
-                        required
-                >
+                <label>Local do evento</label>
+                <input type="text" id="locationEvent" required>
             </div>
 
-            <button type="submit" class="btn-submit" id="btnSubmit">
-                <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                >
-                    <!-- Calendário -->
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-
-                    <!-- Sinal de + -->
-                    <line x1="12" y1="14" x2="12" y2="18"></line>
-                    <line x1="10" y1="16" x2="14" y2="16"></line>
-                </svg>
+            <button type="submit" class="btn-submit">
                 Postar Evento
             </button>
         </form>
@@ -176,5 +83,42 @@
         <p class="footer-subtitle">Portal de Eventos Acadêmicos</p>
     </div>
 </footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      document.getElementById("registrationForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const evento = {
+          titleEvent: document.getElementById("titleEvent").value,
+          descriptionEvent: document.getElementById("descriptionEvent").value,
+          dateEvent: document.getElementById("dateEvent").value,
+          startEvent: document.getElementById("startEvent").value,
+          locationEvent: document.getElementById("locationEvent").value,
+          urlBanner: document.getElementById("urlBanner").value
+        };
+
+        fetch("http://localhost:8081/events", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(evento)
+        })
+        .then(res => {
+          if (!res.ok) throw new Error("Erro ao salvar evento");
+          return res.json();
+        })
+        .then(() => {
+          window.location.href = "/index.html";
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Erro ao cadastrar evento");
+        });
+      });
+
+    });
+</script>
 </body>
 </html>

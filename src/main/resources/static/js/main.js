@@ -31,3 +31,52 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 })
+
+fetch("/events")
+  .then(response => response.json())
+  .then(events => {
+
+    const grid = document.getElementById("eventsGrid");
+    grid.innerHTML = "";
+
+    events.forEach(event => {
+      grid.innerHTML += `
+        <div class="event-card fade-in">
+
+          <div class="event-image">
+            <img src="${event.urlBanner}" alt="${event.titleEvent}">
+            <span class="badge badge-success">Evento</span>
+          </div>
+
+          <div class="event-content">
+            <h3 class="event-title">${event.titleEvent}</h3>
+
+            <p class="event-description">
+              ${event.descriptionEvent}
+            </p>
+
+            <div class="event-details">
+              <div class="event-detail">
+                <span>📅 ${event.dateEvent}</span>
+              </div>
+
+              <div class="event-detail">
+                <span>⏰ ${event.startEvent}</span>
+              </div>
+
+              <div class="event-detail">
+                <span>📍 ${event.locationEvent}</span>
+              </div>
+            </div>
+
+            <!-- BOTÕES -->
+            <div class="event-actions">
+              <a href="evento.html?id=${event.idEvent}" class="event-btn">
+                Ver Detalhes
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  });
