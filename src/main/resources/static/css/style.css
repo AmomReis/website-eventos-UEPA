@@ -96,6 +96,10 @@ body {
   color: var(--primary-blue);
 }
 
+.admin-btn:active {
+  transform: scale(1.2);
+}
+
 /* Hero Section */
 .hero {
   background-color: var(--bg-white);

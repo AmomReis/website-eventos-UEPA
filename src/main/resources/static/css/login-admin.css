@@ -107,40 +107,51 @@ body {
     gap: 12px;
 }
 
-/* Entrar */
-.btn-submit {
-    flex: 1;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    background: linear-gradient(135deg, #020617, #020617);
-    color: white;
-    font-size: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    gap: 10px;
-}
-
-.btn-submit svg {
-    transition: transform 0.3s ease;
-}
-.btn-submit:hover {
-    background: #020617;
-    transform: translateX(4px);
-}
-
-/* Cancelar */
+/* =========================
+   BOTÕES – CONFIGURAÇÃO BASE
+   ========================= */
+.btn-submit,
 .btn-back {
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+
     padding: 14px 18px;
     border-radius: 12px;
     border: 1px solid #1e293b;
-    color: #e5e7eb;
-    text-decoration: none;
+
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+
+    font-size: 15px;
+    height: 52px;
+    min-width: 180px;
+
+    cursor: pointer;
+    user-select: none;
+
+    outline: none;
+    box-shadow: none;
+}
+
+/* impedir reflow */
+.btn-submit svg,
+.btn-back svg {
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+/* clique */
+.btn-submit:active,
+.btn-back:active {
+    transform: scale(0.98);
+}
+
+/* foco acessível sem crescer */
+.btn-submit:focus-visible,
+.btn-back:focus-visible {
+    box-shadow: 0 0 0 2px #2563eb;
 }
 
 /* Texto final */
@@ -164,7 +175,6 @@ body {
 
     .btn-submit,
     .btn-back {
-        width: 100%;
         justify-content: center;
     }
 }
