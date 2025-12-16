@@ -275,15 +275,16 @@ body {
 
 /* Event Card */
 .event-card {
-  background-color: var(--bg-white);
+  background-color: #0f172a; /* ou a cor real do card no dark */
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
-  overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease forwards;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 
 .event-card:hover {
   box-shadow: var(--shadow-lg);
@@ -298,9 +299,13 @@ body {
 }
 
 .event-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
-  height: 240px;
+  height: 220px;
+  padding: 10px;
   overflow: hidden;
 }
 
@@ -308,6 +313,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 0.75rem;
   transition: transform 0.3s ease;
 }
 
@@ -332,6 +338,10 @@ body {
 
 .event-content {
   padding: 1.75rem;
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .event-title {
@@ -347,6 +357,8 @@ body {
   color: var(--text-gray);
   margin-bottom: 1.5rem;
   line-height: 1.6;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .event-details {
@@ -412,6 +424,66 @@ body {
     border-radius: 9999px;
     font-size: 0.75rem;
     font-weight: 600;
+}
+
+/* Adicione ao style.css */
+.event-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de clique */
+.event-card:active {
+  transform: translateY(-2px);
+}
+
+/* Para o botão dentro do card não herde o cursor pointer */
+.event-card .event-btn {
+  cursor: pointer;
+}
+
+/* Estilo para participantes */
+.participant-item {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.participant-info h4 {
+  margin: 0 0 0.25rem 0;
+  color: #333;
+}
+
+.participant-info p {
+  margin: 0.25rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.participant-course {
+  color: #2563eb !important;
+  font-weight: 500;
+}
+
+.no-participants {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.loading-text {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
 }
 
 /* Footer */

@@ -11,7 +11,7 @@ public class Participant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long IdParticipant;
+    private Long idParticipant;
 
     private String name;
 

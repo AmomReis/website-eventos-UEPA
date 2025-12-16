@@ -161,11 +161,13 @@ function renderParticipant(p) {
       <div class="event-info">
         <h3>${p.name}</h3>
         <p>${p.email}</p>
+        <p>${p.course}</p>
+        <p>${p.registration}</p>
       </div>
 
       <div class="event-actions">
         <button class="btn-action delete"
-          onclick="excluirItem('/participants', ${p.id})">
+          onclick="excluirItem('/participants', ${p.idParticipant})">
           Excluir
         </button>
       </div>
@@ -223,7 +225,6 @@ function carregarNews() {
 function carregarParticipants() {
   carregarLista("/participants", "adminParticipantContainer", renderParticipant);
 }
-
 
 /* =========================
    CONFIGURA SUBMIT DOS FORMS

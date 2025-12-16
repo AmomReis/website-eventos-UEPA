@@ -10,7 +10,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+/* =========================
+   TABS
+========================= */
+document.querySelectorAll('.tab-button').forEach(button => {
+  button.addEventListener('click', () => {
 
+    document.querySelectorAll('.tab-button')
+      .forEach(btn => btn.classList.remove('active'));
+
+    document.querySelectorAll('.tab-content')
+      .forEach(content => content.classList.remove('active'));
+
+    button.classList.add('active');
+    const tabId = button.getAttribute('data-tab');
+    document.getElementById(tabId).classList.add('active');
+  });
+});
 // ===============================
 // OBSERVER PARA ANIMAÇÕES
 // ===============================
@@ -35,10 +51,50 @@ function formatarData(dataISO) {
   return new Date(dataISO).toLocaleDateString("pt-BR");
 }
 
+//=========================
+//
+//=========================
+function carregarParticipantes() {
+  fetch("http://localhost:8081/participants")
+    .then(res => res.json())
+    .then(data => {
+      const list = document.getElementById("participantsList");
+      list.innerHTML = "";
+
+      if (data.length === 0) {
+        list.innerHTML = "<p>Nenhum participante inscrito.</p>";
+        return;
+      }
+
+      data.forEach(p => {
+        list.innerHTML += `
+          <div class="participant-card">
+            <strong>${p.name}</strong><br>
+            <small>${p.email}</small>
+          </div>
+        `;
+      });
+    });
+}
+
+//======================
+//
+//======================
+function carregarTotalParticipantes() {
+  fetch("http://localhost:8081/participants/count")
+    .then(res => res.text())
+    .then(total => {
+      document.getElementById("tabParticipantsCount").textContent = total;
+      document.getElementById("participantsCount").textContent = total;
+    });
+}
+
 // ===============================
 // DOM READY
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
+  carregarParticipantes();
+  carregarTotalParticipantes();
 
   // ===============================
   // EFEITO RIPPLE
