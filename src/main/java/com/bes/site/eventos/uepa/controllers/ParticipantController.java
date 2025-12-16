@@ -1,7 +1,7 @@
 package com.bes.site.eventos.uepa.controllers;
 
 import com.bes.site.eventos.uepa.models.Participant;
-import com.bes.site.eventos.uepa.repositories.RepositoryParticipant;
+import com.bes.site.eventos.uepa.repositories.ParticipantRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class ControllerParticipant {
+public class ParticipantController {
 
-    private final RepositoryParticipant repository;
+    private final ParticipantRepository repository;
 
-    public ControllerParticipant(RepositoryParticipant repository) {
+    public ParticipantController(ParticipantRepository repository) {
         this.repository = repository;
     }
 

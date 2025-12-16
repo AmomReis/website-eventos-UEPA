@@ -5,24 +5,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "tb_participante")
+@Table(name = "tb_participantes")
+@Getter @Setter
 public class Participant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    private Long Id;
+    private Long IdParticipant;
 
-    @Getter @Setter
     private String name;
 
-    @Getter @Setter
     private String email;
 
-    @Getter @Setter
     private String course;
 
-    @Getter @Setter
     private String registration;
 
     public Participant() {

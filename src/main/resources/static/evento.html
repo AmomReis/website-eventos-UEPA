@@ -18,14 +18,6 @@
                     <p class="header-subtitle">Universidade do Estado do Pará</p>
                 </div>
             </div>
-            <button class="admin-btn" onclick="window.location.href='/login-admin.html'">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
-                    <polyline points="10 17 15 12 10 7"></polyline>
-                    <line x1="15" y1="12" x2="3" y2="12"></line>
-                </svg>
-                Admin
-            </button>
         </div>
     </div>
 </header>
@@ -65,7 +57,7 @@
                 </svg>
                 <div>
                     <h3>Data</h3>
-                    <p id="eventDate">Terça-feira, 09 de dezembro de 2025</p>
+                    <p id="eventDate">Carregando...</p>
                 </div>
             </div>
 
@@ -76,7 +68,7 @@
                 </svg>
                 <div>
                     <h3>Horário</h3>
-                    <p id="eventTime">08:00 - 18:00</p>
+                    <p id="eventTime">Carregando...</p>
                 </div>
             </div>
 
@@ -87,7 +79,7 @@
                 </svg>
                 <div>
                     <h3>Local</h3>
-                    <p id="eventLocation">Auditório Principal</p>
+                    <p id="eventLocation">Carregando...</p>
                 </div>
             </div>
         </div>
@@ -95,13 +87,14 @@
         <section class="event-section">
             <h2 class="section-title">Sobre o Evento</h2>
             <p class="event-description" id="eventDescription">
-                Grande conferência reunindo palestrantes renomados, professores e alunos para discutir temas relevantes da atualidade acadêmica. Uma oportunidade única de networking e aprendizado com debates enriquecedores.
+                Carregando descrição do evento...
             </p>
         </section>
 
         <div class="tabs">
             <button class="tab-button active" data-tab="inscricao">Inscrição</button>
-            <button class="tab-button" data-tab="participantes">Participantes (<span id="tabParticipantsCount">0</span>)</button>
+            <button class="tab-button" data-tab="participantes">Participantes (<span id="tabParticipantsCount">0</span>)
+            </button>
         </div>
 
         <div class="tab-content active" id="inscricao">
@@ -112,7 +105,8 @@
                 <form action="/inscricao" method="POST" id="registrationForm" class="registration-form">
                     <div class="form-group">
                         <label for="nomeCompleto">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                                 <circle cx="12" cy="7" r="4"/>
                             </svg>
@@ -129,7 +123,8 @@
 
                     <div class="form-group">
                         <label for="email">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                 <polyline points="22,6 12,13 2,6"/>
                             </svg>
@@ -146,7 +141,8 @@
 
                     <div class="form-group">
                         <label for="curso">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2">
                                 <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
                             </svg>
@@ -163,7 +159,8 @@
 
                     <div class="form-group">
                         <label for="matricula">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2">
                                 <line x1="4" y1="9" x2="20" y2="9"/>
                                 <line x1="4" y1="15" x2="20" y2="15"/>
                                 <line x1="10" y1="3" x2="8" y2="21"/>
@@ -181,7 +178,8 @@
                     </div>
 
                     <button type="submit" class="btn-submit" id="btnSubmit">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                             <circle cx="8.5" cy="7" r="4"/>
                             <line x1="20" y1="8" x2="20" y2="14"/>
@@ -229,7 +227,7 @@
                 </svg>
                 <div>
                     <h3>Endereço completo:</h3>
-                    <p id="fullAddress">Campus Universitário UEPA, Tv. Perebebuí, 2623 - Marco, Belém - PA</p>
+                    <p id="fullAddress">Carregando endereço...</p>
                 </div>
             </div>
 
@@ -272,8 +270,8 @@
     </div>
 </footer>
 
-<script src="js/main.js"></script>
-<script src="js/evento.js"></script>
+<script src="main.js"></script>
+<script src="evento.js"></script>
 <!-- Popup de Sucesso -->
 <div id="successPopup" class="popup-overlay" style="display: none;">
     <div class="popup-box">
