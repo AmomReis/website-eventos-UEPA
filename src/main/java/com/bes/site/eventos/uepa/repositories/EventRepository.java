@@ -3,5 +3,5 @@ package com.bes.site.eventos.uepa.repositories;
 import com.bes.site.eventos.uepa.models.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RepositoryEvent extends JpaRepository<Event, Long> {
+public interface EventRepository extends JpaRepository<Event, Long> {
 }

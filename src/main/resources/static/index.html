@@ -18,14 +18,14 @@
                     <p>Universidade do Estado do Pará</p>
                 </div>
             </div>
-            <button class="admin-btn" onclick="window.location.href='/login-admin.html'">
+            <a class="admin-btn" onclick="window.location.href='/login-admin.html'">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
                     <polyline points="10 17 15 12 10 7"></polyline>
                     <line x1="15" y1="12" x2="3" y2="12"></line>
                 </svg>
                 Admin
-            </button>
+            </a>
         </div>
     </div>
 </header>
@@ -87,13 +87,35 @@
     </div>
 </section>
 
-<!-- Events Section -->
-<section class="events">
-    <div class="container">
-        <h2 class="section-title">Próximos Eventos</h2>
-        <div class="events-grid" id="eventsGrid"></div>
+<!-- AREA TABS -->
+<main class="container">
+    <div class="geral-panel">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-button active" data-tab="eventos-cadastrados">
+                Eventos
+            </button>
+            <button class="tab-button" data-tab="noticias-cadastrados">
+                Noticias
+            </button>
+        </div>
+
+        <!-- AREA DE EVENTOS -->
+        <div class="tab-content active" id="eventos-cadastrados">
+            <div class="events-container">
+                <div class="events-grid" id="eventsGrid">
+                </div>
+            </div>
+        </div>
+
+        <!-- AREA DE NOTICIAS -->
+        <div class="tab-content" id="noticias-cadastrados">
+            <div class="events-container">
+                <div class="events-grid" id="newsGrid"></div>
+            </div>
+        </div>
     </div>
-</section>
+</main>
 
 <!-- Footer -->
 <footer class="footer">

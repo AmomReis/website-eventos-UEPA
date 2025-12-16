@@ -1,82 +1,131 @@
-// Apenas efeitos visuais — arquivo totalmente limpo
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Animação no scroll
+
+  /* =========================
+     ANIMAÇÃO FADE-IN
+  ========================= */
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
+    entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = "1"
-          entry.target.style.transform = "translateY(0)"
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
         }
-      })
+      });
     },
     { threshold: 0.1 }
-  )
+  );
 
-  document.querySelectorAll(".fade-in").forEach((element) => observer.observe(element))
 
-  // Ripple effect
-  document.querySelectorAll("button, .btn").forEach((btn) => {
-    btn.addEventListener("click", function (e) {
-      const ripple = document.createElement("span")
-      const rect = this.getBoundingClientRect()
-      const size = Math.max(rect.width, rect.height)
-      ripple.style.width = ripple.style.height = `${size}px`
-      ripple.style.left = `${e.clientX - rect.left - size / 2}px`
-      ripple.style.top = `${e.clientY - rect.top - size / 2}px`
-      ripple.classList.add("ripple")
-      this.appendChild(ripple)
-      setTimeout(() => ripple.remove(), 600)
-    })
-  })
-})
+  /* =========================
+     FUNÇÃO GENÉRICA LISTAR
+  ========================= */
+  function carregarLista(endpoint, gridId, renderItem) {
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(data => {
+        const grid = document.getElementById(gridId);
+        if (!grid) return;
 
-fetch("/events")
-  .then(response => response.json())
-  .then(events => {
+        grid.innerHTML = "";
 
-    const grid = document.getElementById("eventsGrid");
-    grid.innerHTML = "";
+        data.forEach(item => {
+          const card = document.createElement("div");
+          card.classList.add("fade-in");
+          card.innerHTML = renderItem(item);
 
-    events.forEach(event => {
-      grid.innerHTML += `
-        <div class="event-card fade-in">
+          grid.appendChild(card);
+          observer.observe(card);
+        });
+      })
+      .catch(err => console.error(`Erro ao carregar ${endpoint}`, err));
+  }
 
-          <div class="event-image">
-            <img src="${event.urlBanner}" alt="${event.titleEvent}">
-            <span class="badge badge-success">Evento</span>
+
+  /* =========================
+     RENDER EVENTO
+  ========================= */
+  function renderEvento(event) {
+    return `
+      <div class="event-card">
+        <div class="event-image">
+          <img src="${event.urlBanner}" alt="${event.titleEvent}">
+        </div>
+
+        <div class="event-content">
+          <h3 class="event-title">${event.titleEvent}</h3>
+
+          <p class="event-description">
+            ${event.descriptionEvent}
+          </p>
+
+          <div class="event-details">
+            <span>📅 ${event.dateEvent}</span>
+            <span>⏰ ${event.startEvent}</span>
+            <span>📍 ${event.locationEvent}</span>
           </div>
 
-          <div class="event-content">
-            <h3 class="event-title">${event.titleEvent}</h3>
-
-            <p class="event-description">
-              ${event.descriptionEvent}
-            </p>
-
-            <div class="event-details">
-              <div class="event-detail">
-                <span>📅 ${event.dateEvent}</span>
-              </div>
-
-              <div class="event-detail">
-                <span>⏰ ${event.startEvent}</span>
-              </div>
-
-              <div class="event-detail">
-                <span>📍 ${event.locationEvent}</span>
-              </div>
-            </div>
-
-            <!-- BOTÕES -->
-            <div class="event-actions">
-              <a href="evento.html?id=${event.idEvent}" class="event-btn">
-                Ver Detalhes
-              </a>
-            </div>
+          <div class="event-actions">
+            <a href="evento.html?id=${event.idEvent}" class="event-btn">
+              Ver Detalhes
+            </a>
           </div>
         </div>
-      `;
-    });
+      </div>
+    `;
+  }
+
+
+  /* =========================
+     RENDER NEWS
+  ========================= */
+  function renderNews(news) {
+    return `
+      <div class="event-card">
+        <div class="event-image">
+          <img src="${news.urlBanner}" alt="${news.title}">
+        </div>
+
+        <div class="event-content">
+          <h3 class="event-title">${news.title}</h3>
+
+          <p class="event-description">
+            ${news.content.substring(0, 150)}...
+          </p>
+
+          <div class="event-actions">
+            <a href="noticia.html?id=${news.id}" class="event-btn">
+              Ler Notícia
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+
+  /* =========================
+     CHAMADAS
+  ========================= */
+  carregarLista("/events", "eventsGrid", renderEvento);
+  carregarLista("/news", "newsGrid", renderNews);
+
+});
+
+
+/* =========================
+   TABS
+========================= */
+document.querySelectorAll('.tab-button').forEach(button => {
+  button.addEventListener('click', () => {
+
+    document.querySelectorAll('.tab-button')
+      .forEach(btn => btn.classList.remove('active'));
+
+    document.querySelectorAll('.tab-content')
+      .forEach(content => content.classList.remove('active'));
+
+    button.classList.add('active');
+    const tabId = button.getAttribute('data-tab');
+    document.getElementById(tabId).classList.add('active');
   });
+});
